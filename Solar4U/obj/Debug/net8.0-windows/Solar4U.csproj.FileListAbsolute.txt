@@ -15,3 +15,4 @@ C:\Mac\Home\Desktop\CProjects\sales-quote-v2\Solar4U\obj\Debug\net8.0-windows\So
 C:\Mac\Home\Desktop\CProjects\sales-quote-v2\Solar4U\obj\Debug\net8.0-windows\ref\Solar4U.dll
 C:\Mac\Home\Desktop\CProjects\sales-quote-v2\Solar4U\obj\Debug\net8.0-windows\Solar4U.Solar4UFormApp.resources
 C:\Mac\Home\Desktop\CProjects\sales-quote-v2\Solar4U\obj\Debug\net8.0-windows\Solar4U.Properties.Resources.resources
+C:\Mac\Home\Desktop\CProjects\sales-quote-v2\Solar4U\obj\Debug\net8.0-windows\Solar4U.sourcelink.json

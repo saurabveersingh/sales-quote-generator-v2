@@ -40,9 +40,10 @@
             brandPriceLabel = new Label();
             brandLabel = new Label();
             batterySelection = new GroupBox();
-            battery20RadioButton = new RadioButton();
-            battery10RadioButton = new RadioButton();
-            battery5RadioButton = new RadioButton();
+            battery4RadioButton = new RadioButton();
+            battery1RadioButton = new RadioButton();
+            battery2RadioButton = new RadioButton();
+            battery3RadioButton = new RadioButton();
             sizeList = new ListBox();
             brandList = new ListBox();
             optionsPanel = new Panel();
@@ -84,6 +85,7 @@
             summaryLabel = new Label();
             summaryHeadingLine = new Panel();
             toolTip = new ToolTip(components);
+            discountOffer = new Label();
             ((System.ComponentModel.ISupportInitialize)logoImage).BeginInit();
             selectionPanel.SuspendLayout();
             batterySelection.SuspendLayout();
@@ -98,12 +100,13 @@
             logoImage.Name = "logoImage";
             logoImage.Size = new Size(200, 200);
             logoImage.SizeMode = PictureBoxSizeMode.Zoom;
-            logoImage.TabIndex = 18;
+            logoImage.TabIndex = 19;
             logoImage.TabStop = false;
             // 
             // selectionPanel
             // 
             selectionPanel.BackColor = Color.Maroon;
+            selectionPanel.Controls.Add(discountOffer);
             selectionPanel.Controls.Add(expInstallCheckBox);
             selectionPanel.Controls.Add(quantityLabel);
             selectionPanel.Controls.Add(quantityInput);
@@ -118,19 +121,20 @@
             selectionPanel.Location = new Point(50, 50);
             selectionPanel.Name = "selectionPanel";
             selectionPanel.Size = new Size(1425, 400);
-            selectionPanel.TabIndex = 19;
+            selectionPanel.TabIndex = 20;
             // 
             // expInstallCheckBox
             // 
             expInstallCheckBox.AutoSize = true;
             expInstallCheckBox.Font = new Font("Segoe UI", 12F);
             expInstallCheckBox.ForeColor = Color.FromArgb(255, 255, 192);
-            expInstallCheckBox.Location = new Point(1030, 270);
+            expInstallCheckBox.Location = new Point(1030, 300);
             expInstallCheckBox.Name = "expInstallCheckBox";
             expInstallCheckBox.Size = new Size(383, 49);
-            expInstallCheckBox.TabIndex = 7;
+            expInstallCheckBox.TabIndex = 8;
             expInstallCheckBox.Text = "Expedited Install ($299)";
             expInstallCheckBox.UseVisualStyleBackColor = true;
+            expInstallCheckBox.CheckedChanged += ExpInstallCheckBox_CheckedChanged;
             // 
             // quantityLabel
             // 
@@ -140,7 +144,7 @@
             quantityLabel.Location = new Point(855, 25);
             quantityLabel.Name = "quantityLabel";
             quantityLabel.Size = new Size(149, 45);
-            quantityLabel.TabIndex = 17;
+            quantityLabel.TabIndex = 18;
             quantityLabel.Text = "Quantity";
             // 
             // quantityInput
@@ -154,6 +158,7 @@
             quantityInput.TabIndex = 2;
             quantityInput.Text = "0";
             quantityInput.TextAlign = HorizontalAlignment.Center;
+            quantityInput.TextChanged += QuantityInput_TextChanged;
             // 
             // sizeLabel
             // 
@@ -163,7 +168,7 @@
             sizeLabel.Location = new Point(495, 25);
             sizeLabel.Name = "sizeLabel";
             sizeLabel.Size = new Size(79, 45);
-            sizeLabel.TabIndex = 15;
+            sizeLabel.TabIndex = 16;
             sizeLabel.Text = "Size";
             // 
             // effectLabel
@@ -174,7 +179,7 @@
             effectLabel.Location = new Point(680, 25);
             effectLabel.Name = "effectLabel";
             effectLabel.Size = new Size(105, 45);
-            effectLabel.TabIndex = 16;
+            effectLabel.TabIndex = 17;
             effectLabel.Text = "Effect";
             // 
             // brandPriceLabel
@@ -185,7 +190,7 @@
             brandPriceLabel.Location = new Point(320, 25);
             brandPriceLabel.Name = "brandPriceLabel";
             brandPriceLabel.Size = new Size(94, 45);
-            brandPriceLabel.TabIndex = 14;
+            brandPriceLabel.TabIndex = 15;
             brandPriceLabel.Text = "Price";
             // 
             // brandLabel
@@ -196,62 +201,80 @@
             brandLabel.Location = new Point(55, 25);
             brandLabel.Name = "brandLabel";
             brandLabel.Size = new Size(110, 45);
-            brandLabel.TabIndex = 13;
+            brandLabel.TabIndex = 14;
             brandLabel.Text = "Brand";
             // 
             // batterySelection
             // 
             batterySelection.BackColor = Color.Maroon;
-            batterySelection.Controls.Add(battery20RadioButton);
-            batterySelection.Controls.Add(battery10RadioButton);
-            batterySelection.Controls.Add(battery5RadioButton);
+            batterySelection.Controls.Add(battery4RadioButton);
+            batterySelection.Controls.Add(battery1RadioButton);
+            batterySelection.Controls.Add(battery2RadioButton);
+            batterySelection.Controls.Add(battery3RadioButton);
             batterySelection.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             batterySelection.ForeColor = Color.FromArgb(255, 255, 192);
             batterySelection.Location = new Point(1055, 25);
             batterySelection.Name = "batterySelection";
-            batterySelection.Size = new Size(310, 215);
+            batterySelection.Size = new Size(310, 265);
             batterySelection.TabIndex = 3;
             batterySelection.TabStop = false;
             batterySelection.Text = "Battery";
             // 
-            // battery20RadioButton
+            // battery4RadioButton
             // 
-            battery20RadioButton.AutoSize = true;
-            battery20RadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            battery20RadioButton.ForeColor = Color.FromArgb(255, 255, 192);
-            battery20RadioButton.Location = new Point(32, 159);
-            battery20RadioButton.Name = "battery20RadioButton";
-            battery20RadioButton.Size = new Size(274, 49);
-            battery20RadioButton.TabIndex = 6;
-            battery20RadioButton.TabStop = true;
-            battery20RadioButton.Text = "20KWh ($9,500)";
-            battery20RadioButton.UseVisualStyleBackColor = true;
+            battery4RadioButton.AutoSize = true;
+            battery4RadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            battery4RadioButton.ForeColor = Color.FromArgb(255, 255, 192);
+            battery4RadioButton.Location = new Point(32, 199);
+            battery4RadioButton.Name = "battery4RadioButton";
+            battery4RadioButton.Size = new Size(241, 49);
+            battery4RadioButton.TabIndex = 7;
+            battery4RadioButton.TabStop = true;
+            battery4RadioButton.Text = "Not Required";
+            battery4RadioButton.UseVisualStyleBackColor = true;
+            battery4RadioButton.CheckedChanged += Battery4RadioButton_CheckedChanged;
             // 
-            // battery10RadioButton
+            // battery1RadioButton
             // 
-            battery10RadioButton.AutoSize = true;
-            battery10RadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            battery10RadioButton.ForeColor = Color.FromArgb(255, 255, 192);
-            battery10RadioButton.Location = new Point(32, 104);
-            battery10RadioButton.Name = "battery10RadioButton";
-            battery10RadioButton.Size = new Size(274, 49);
-            battery10RadioButton.TabIndex = 5;
-            battery10RadioButton.TabStop = true;
-            battery10RadioButton.Text = "10KWh ($7,500)";
-            battery10RadioButton.UseVisualStyleBackColor = true;
+            battery1RadioButton.AutoSize = true;
+            battery1RadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            battery1RadioButton.ForeColor = Color.FromArgb(255, 255, 192);
+            battery1RadioButton.Location = new Point(32, 49);
+            battery1RadioButton.Name = "battery1RadioButton";
+            battery1RadioButton.Size = new Size(274, 49);
+            battery1RadioButton.TabIndex = 4;
+            battery1RadioButton.TabStop = true;
+            battery1RadioButton.Text = "20KWh ($9,500)";
+            battery1RadioButton.UseVisualStyleBackColor = true;
+            battery1RadioButton.CheckedChanged += Battery1RadioButton_CheckedChanged;
             // 
-            // battery5RadioButton
+            // battery2RadioButton
             // 
-            battery5RadioButton.AutoSize = true;
-            battery5RadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            battery5RadioButton.ForeColor = Color.FromArgb(255, 255, 192);
-            battery5RadioButton.Location = new Point(32, 49);
-            battery5RadioButton.Name = "battery5RadioButton";
-            battery5RadioButton.Size = new Size(257, 49);
-            battery5RadioButton.TabIndex = 4;
-            battery5RadioButton.TabStop = true;
-            battery5RadioButton.Text = "5KWh ($4,500)";
-            battery5RadioButton.UseVisualStyleBackColor = true;
+            battery2RadioButton.AutoSize = true;
+            battery2RadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            battery2RadioButton.ForeColor = Color.FromArgb(255, 255, 192);
+            battery2RadioButton.Location = new Point(32, 99);
+            battery2RadioButton.Name = "battery2RadioButton";
+            battery2RadioButton.Size = new Size(274, 49);
+            battery2RadioButton.TabIndex = 5;
+            battery2RadioButton.TabStop = true;
+            battery2RadioButton.Text = "10KWh ($7,500)";
+            battery2RadioButton.UseVisualStyleBackColor = true;
+            battery2RadioButton.CheckedChanged += Battery2RadioButton_CheckedChanged;
+            // 
+            // battery3RadioButton
+            // 
+            battery3RadioButton.AutoSize = true;
+            battery3RadioButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            battery3RadioButton.ForeColor = Color.FromArgb(255, 255, 192);
+            battery3RadioButton.Location = new Point(32, 149);
+            battery3RadioButton.Name = "battery3RadioButton";
+            battery3RadioButton.Size = new Size(257, 49);
+            battery3RadioButton.TabIndex = 6;
+            battery3RadioButton.TabStop = true;
+            battery3RadioButton.Text = "5KWh ($4,500)";
+            battery3RadioButton.UseVisualStyleBackColor = true;
+            battery3RadioButton.CheckedChanged += Battery3RadioButton_CheckedChanged;
             // 
             // sizeList
             // 
@@ -265,6 +288,7 @@
             sizeList.Name = "sizeList";
             sizeList.Size = new Size(325, 274);
             sizeList.TabIndex = 1;
+            sizeList.SelectedIndexChanged += SizeList_SelectedIndexChanged;
             // 
             // brandList
             // 
@@ -278,6 +302,7 @@
             brandList.Name = "brandList";
             brandList.Size = new Size(410, 274);
             brandList.TabIndex = 0;
+            brandList.SelectedIndexChanged += BrandList_SelectedIndexChanged;
             // 
             // optionsPanel
             // 
@@ -290,7 +315,7 @@
             optionsPanel.Location = new Point(1100, 500);
             optionsPanel.Name = "optionsPanel";
             optionsPanel.Size = new Size(375, 625);
-            optionsPanel.TabIndex = 20;
+            optionsPanel.TabIndex = 21;
             // 
             // exitButton
             // 
@@ -303,11 +328,11 @@
             exitButton.Location = new Point(90, 508);
             exitButton.Name = "exitButton";
             exitButton.Size = new Size(200, 52);
-            exitButton.TabIndex = 12;
+            exitButton.TabIndex = 13;
             exitButton.Text = "E&xit";
             toolTip.SetToolTip(exitButton, "Press to Quit the App");
             exitButton.UseVisualStyleBackColor = false;
-            exitButton.Click += exitButton_Click;
+            exitButton.Click += ExitButton_Click;
             // 
             // summaryButton
             // 
@@ -321,11 +346,11 @@
             summaryButton.Location = new Point(90, 396);
             summaryButton.Name = "summaryButton";
             summaryButton.Size = new Size(200, 52);
-            summaryButton.TabIndex = 11;
+            summaryButton.TabIndex = 12;
             summaryButton.Text = "&Summary";
             toolTip.SetToolTip(summaryButton, "Press to view Summary of all quotations");
             summaryButton.UseVisualStyleBackColor = false;
-            summaryButton.Click += summaryButton_Click;
+            summaryButton.Click += SummaryButton_Click;
             // 
             // orderButton
             // 
@@ -339,11 +364,11 @@
             orderButton.Location = new Point(90, 284);
             orderButton.Name = "orderButton";
             orderButton.Size = new Size(200, 52);
-            orderButton.TabIndex = 10;
+            orderButton.TabIndex = 11;
             orderButton.Text = "&Order";
             toolTip.SetToolTip(orderButton, "Press to confirm the order");
             orderButton.UseVisualStyleBackColor = false;
-            orderButton.Click += orderButton_Click;
+            orderButton.Click += OrderButton_Click;
             // 
             // clearButton
             // 
@@ -356,11 +381,11 @@
             clearButton.Location = new Point(90, 172);
             clearButton.Name = "clearButton";
             clearButton.Size = new Size(200, 52);
-            clearButton.TabIndex = 9;
+            clearButton.TabIndex = 10;
             clearButton.Text = "&Clear";
             toolTip.SetToolTip(clearButton, "Press to reset the form");
             clearButton.UseVisualStyleBackColor = false;
-            clearButton.Click += clearButton_Click;
+            clearButton.Click += ClearButton_Click;
             // 
             // quoteButton
             // 
@@ -373,11 +398,11 @@
             quoteButton.Location = new Point(90, 60);
             quoteButton.Name = "quoteButton";
             quoteButton.Size = new Size(200, 52);
-            quoteButton.TabIndex = 8;
+            quoteButton.TabIndex = 9;
             quoteButton.Text = "&Quote";
             toolTip.SetToolTip(quoteButton, "Press to view quotation");
             quoteButton.UseVisualStyleBackColor = false;
-            quoteButton.Click += quoteButton_Click;
+            quoteButton.Click += QuoteButton_Click;
             // 
             // summaryPanel
             // 
@@ -416,7 +441,7 @@
             summaryPanel.Location = new Point(50, 500);
             summaryPanel.Name = "summaryPanel";
             summaryPanel.Size = new Size(1000, 625);
-            summaryPanel.TabIndex = 21;
+            summaryPanel.TabIndex = 22;
             summaryPanel.Visible = false;
             // 
             // installationDetails
@@ -427,7 +452,7 @@
             installationDetails.Name = "installationDetails";
             installationDetails.Padding = new Padding(0, 4, 0, 4);
             installationDetails.Size = new Size(400, 43);
-            installationDetails.TabIndex = 39;
+            installationDetails.TabIndex = 40;
             installationDetails.Text = "Expedited Install";
             installationDetails.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -439,7 +464,7 @@
             invertorDetails.Name = "invertorDetails";
             invertorDetails.Padding = new Padding(0, 4, 0, 4);
             invertorDetails.Size = new Size(400, 43);
-            invertorDetails.TabIndex = 35;
+            invertorDetails.TabIndex = 36;
             invertorDetails.Text = "Regular without Battery";
             invertorDetails.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -451,7 +476,7 @@
             batteryDetails.Name = "batteryDetails";
             batteryDetails.Padding = new Padding(0, 4, 0, 4);
             batteryDetails.Size = new Size(400, 43);
-            batteryDetails.TabIndex = 31;
+            batteryDetails.TabIndex = 32;
             batteryDetails.Text = "5KWh";
             batteryDetails.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -463,7 +488,7 @@
             panelDetails.Name = "panelDetails";
             panelDetails.Padding = new Padding(0, 4, 0, 4);
             panelDetails.Size = new Size(400, 43);
-            panelDetails.TabIndex = 27;
+            panelDetails.TabIndex = 28;
             panelDetails.Text = "LONGi Solar 30-Cell x1";
             panelDetails.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -476,7 +501,7 @@
             noOfDiscounts.Margin = new Padding(0);
             noOfDiscounts.Name = "noOfDiscounts";
             noOfDiscounts.Size = new Size(160, 40);
-            noOfDiscounts.TabIndex = 52;
+            noOfDiscounts.TabIndex = 53;
             noOfDiscounts.Text = "0";
             noOfDiscounts.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -489,7 +514,7 @@
             netValue.Margin = new Padding(0);
             netValue.Name = "netValue";
             netValue.Size = new Size(160, 40);
-            netValue.TabIndex = 48;
+            netValue.TabIndex = 49;
             netValue.Text = "0";
             netValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -502,7 +527,7 @@
             discountValue.Margin = new Padding(0);
             discountValue.Name = "discountValue";
             discountValue.Size = new Size(160, 40);
-            discountValue.TabIndex = 46;
+            discountValue.TabIndex = 47;
             discountValue.Text = "0";
             discountValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -515,7 +540,7 @@
             noOfDiscountsLabel.Name = "noOfDiscountsLabel";
             noOfDiscountsLabel.Padding = new Padding(0, 4, 0, 4);
             noOfDiscountsLabel.Size = new Size(252, 43);
-            noOfDiscountsLabel.TabIndex = 51;
+            noOfDiscountsLabel.TabIndex = 52;
             noOfDiscountsLabel.Text = "No. of Discounts";
             // 
             // netValueLabel
@@ -527,7 +552,7 @@
             netValueLabel.Name = "netValueLabel";
             netValueLabel.Padding = new Padding(0, 4, 0, 4);
             netValueLabel.Size = new Size(150, 43);
-            netValueLabel.TabIndex = 47;
+            netValueLabel.TabIndex = 48;
             netValueLabel.Text = "Net Value";
             // 
             // discountValueLabel
@@ -539,7 +564,7 @@
             discountValueLabel.Name = "discountValueLabel";
             discountValueLabel.Padding = new Padding(0, 4, 0, 4);
             discountValueLabel.Size = new Size(214, 43);
-            discountValueLabel.TabIndex = 45;
+            discountValueLabel.TabIndex = 46;
             discountValueLabel.Text = "Discount (3%)";
             // 
             // averageValue
@@ -551,7 +576,7 @@
             averageValue.Margin = new Padding(0);
             averageValue.Name = "averageValue";
             averageValue.Size = new Size(160, 40);
-            averageValue.TabIndex = 50;
+            averageValue.TabIndex = 51;
             averageValue.Text = "0";
             averageValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -564,7 +589,7 @@
             grossValue.Margin = new Padding(0);
             grossValue.Name = "grossValue";
             grossValue.Size = new Size(160, 40);
-            grossValue.TabIndex = 44;
+            grossValue.TabIndex = 45;
             grossValue.Text = "0";
             grossValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -577,7 +602,7 @@
             installationPercentage.Margin = new Padding(0);
             installationPercentage.Name = "installationPercentage";
             installationPercentage.Size = new Size(100, 40);
-            installationPercentage.TabIndex = 41;
+            installationPercentage.TabIndex = 42;
             installationPercentage.Text = "0";
             installationPercentage.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -590,7 +615,7 @@
             installationCostValue.Margin = new Padding(0);
             installationCostValue.Name = "installationCostValue";
             installationCostValue.Size = new Size(160, 40);
-            installationCostValue.TabIndex = 40;
+            installationCostValue.TabIndex = 41;
             installationCostValue.Text = "0";
             installationCostValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -603,7 +628,7 @@
             invertorsPercentage.Margin = new Padding(0);
             invertorsPercentage.Name = "invertorsPercentage";
             invertorsPercentage.Size = new Size(100, 40);
-            invertorsPercentage.TabIndex = 37;
+            invertorsPercentage.TabIndex = 38;
             invertorsPercentage.Text = "0";
             invertorsPercentage.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -616,7 +641,7 @@
             invertorsCostValue.Margin = new Padding(0);
             invertorsCostValue.Name = "invertorsCostValue";
             invertorsCostValue.Size = new Size(160, 40);
-            invertorsCostValue.TabIndex = 36;
+            invertorsCostValue.TabIndex = 37;
             invertorsCostValue.Text = "0";
             invertorsCostValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -629,7 +654,7 @@
             batteriesPercentage.Margin = new Padding(0);
             batteriesPercentage.Name = "batteriesPercentage";
             batteriesPercentage.Size = new Size(100, 40);
-            batteriesPercentage.TabIndex = 33;
+            batteriesPercentage.TabIndex = 34;
             batteriesPercentage.Text = "0";
             batteriesPercentage.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -642,7 +667,7 @@
             batteriesCostValue.Margin = new Padding(0);
             batteriesCostValue.Name = "batteriesCostValue";
             batteriesCostValue.Size = new Size(160, 40);
-            batteriesCostValue.TabIndex = 32;
+            batteriesCostValue.TabIndex = 33;
             batteriesCostValue.Text = "0";
             batteriesCostValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -655,7 +680,7 @@
             panelsPercentage.Margin = new Padding(0);
             panelsPercentage.Name = "panelsPercentage";
             panelsPercentage.Size = new Size(100, 40);
-            panelsPercentage.TabIndex = 29;
+            panelsPercentage.TabIndex = 30;
             panelsPercentage.Text = "0";
             panelsPercentage.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -668,7 +693,7 @@
             panelsCostValue.Margin = new Padding(0);
             panelsCostValue.Name = "panelsCostValue";
             panelsCostValue.Size = new Size(160, 40);
-            panelsCostValue.TabIndex = 28;
+            panelsCostValue.TabIndex = 29;
             panelsCostValue.Text = "0";
             panelsCostValue.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -681,7 +706,7 @@
             noOfOrders.Margin = new Padding(0);
             noOfOrders.Name = "noOfOrders";
             noOfOrders.Size = new Size(160, 40);
-            noOfOrders.TabIndex = 25;
+            noOfOrders.TabIndex = 26;
             noOfOrders.Text = "0";
             noOfOrders.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -691,7 +716,7 @@
             summaryMidLine.Location = new Point(60, 320);
             summaryMidLine.Name = "summaryMidLine";
             summaryMidLine.Size = new Size(880, 5);
-            summaryMidLine.TabIndex = 42;
+            summaryMidLine.TabIndex = 43;
             // 
             // averageValueLabel
             // 
@@ -702,7 +727,7 @@
             averageValueLabel.Name = "averageValueLabel";
             averageValueLabel.Padding = new Padding(0, 4, 0, 4);
             averageValueLabel.Size = new Size(235, 45);
-            averageValueLabel.TabIndex = 49;
+            averageValueLabel.TabIndex = 50;
             averageValueLabel.Text = "Average Value";
             // 
             // grossValueLabel
@@ -714,7 +739,7 @@
             grossValueLabel.Name = "grossValueLabel";
             grossValueLabel.Padding = new Padding(0, 4, 0, 4);
             grossValueLabel.Size = new Size(188, 43);
-            grossValueLabel.TabIndex = 43;
+            grossValueLabel.TabIndex = 44;
             grossValueLabel.Text = "Gross Value";
             // 
             // installationSummaryLabel
@@ -726,7 +751,7 @@
             installationSummaryLabel.Name = "installationSummaryLabel";
             installationSummaryLabel.Padding = new Padding(0, 4, 0, 4);
             installationSummaryLabel.Size = new Size(172, 43);
-            installationSummaryLabel.TabIndex = 38;
+            installationSummaryLabel.TabIndex = 39;
             installationSummaryLabel.Text = "Installation";
             // 
             // invertorSummaryLabel
@@ -738,7 +763,7 @@
             invertorSummaryLabel.Name = "invertorSummaryLabel";
             invertorSummaryLabel.Padding = new Padding(0, 4, 0, 4);
             invertorSummaryLabel.Size = new Size(127, 43);
-            invertorSummaryLabel.TabIndex = 34;
+            invertorSummaryLabel.TabIndex = 35;
             invertorSummaryLabel.Text = "Invertor";
             // 
             // batterySummaryLabel
@@ -750,7 +775,7 @@
             batterySummaryLabel.Name = "batterySummaryLabel";
             batterySummaryLabel.Padding = new Padding(0, 4, 0, 4);
             batterySummaryLabel.Size = new Size(118, 43);
-            batterySummaryLabel.TabIndex = 30;
+            batterySummaryLabel.TabIndex = 31;
             batterySummaryLabel.Text = "Battery";
             // 
             // panelsSummaryLabel
@@ -762,7 +787,7 @@
             panelsSummaryLabel.Name = "panelsSummaryLabel";
             panelsSummaryLabel.Padding = new Padding(0, 4, 0, 4);
             panelsSummaryLabel.Size = new Size(195, 43);
-            panelsSummaryLabel.TabIndex = 26;
+            panelsSummaryLabel.TabIndex = 27;
             panelsSummaryLabel.Text = "Solar Panels";
             // 
             // noOfOrdersLabel
@@ -774,7 +799,7 @@
             noOfOrdersLabel.Name = "noOfOrdersLabel";
             noOfOrdersLabel.Padding = new Padding(0, 4, 0, 4);
             noOfOrdersLabel.Size = new Size(206, 43);
-            noOfOrdersLabel.TabIndex = 24;
+            noOfOrdersLabel.TabIndex = 25;
             noOfOrdersLabel.Text = "No. of Orders";
             // 
             // summaryLabel
@@ -786,7 +811,7 @@
             summaryLabel.Name = "summaryLabel";
             summaryLabel.Padding = new Padding(0, 4, 0, 4);
             summaryLabel.Size = new Size(211, 40);
-            summaryLabel.TabIndex = 23;
+            summaryLabel.TabIndex = 24;
             summaryLabel.Text = "Quote Summary";
             // 
             // summaryHeadingLine
@@ -796,13 +821,25 @@
             summaryHeadingLine.Location = new Point(0, 20);
             summaryHeadingLine.Name = "summaryHeadingLine";
             summaryHeadingLine.Size = new Size(1000, 2);
-            summaryHeadingLine.TabIndex = 22;
+            summaryHeadingLine.TabIndex = 23;
             // 
             // toolTip
             // 
             toolTip.IsBalloon = true;
             toolTip.ToolTipIcon = ToolTipIcon.Info;
             toolTip.ToolTipTitle = "Info";
+            // 
+            // discountOffer
+            // 
+            discountOffer.Font = new Font("Segoe UI", 10F);
+            discountOffer.ForeColor = Color.FromArgb(255, 255, 192);
+            discountOffer.Location = new Point(830, 128);
+            discountOffer.Name = "discountOffer";
+            discountOffer.Size = new Size(200, 229);
+            discountOffer.TabIndex = 54;
+            discountOffer.Text = "3% Discount with a system of 700 + Cells that also has a 10KWh or higher Battery";
+            discountOffer.TextAlign = ContentAlignment.MiddleCenter;
+            discountOffer.Visible = false;
             // 
             // Solar4UFormApp
             // 
@@ -834,10 +871,10 @@
         private ListBox brandList;
         private Panel optionsPanel;
         private ListBox sizeList;
-        private RadioButton battery5RadioButton;
+        private RadioButton battery3RadioButton;
         private GroupBox batterySelection;
-        private RadioButton battery20RadioButton;
-        private RadioButton battery10RadioButton;
+        private RadioButton battery1RadioButton;
+        private RadioButton battery2RadioButton;
         private Label brandLabel;
         private Label sizeLabel;
         private Label effectLabel;
@@ -883,5 +920,7 @@
         private Label batteryDetails;
         private Label invertorDetails;
         private Label installationDetails;
+        private RadioButton battery4RadioButton;
+        private Label discountOffer;
     }
 }
